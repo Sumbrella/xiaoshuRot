@@ -10,7 +10,7 @@ from nonebot import CommandSession
 from nonebot import NLPSession
 from nonebot import IntentCommand
 
-from ..qqids import *
+from ..data.qqids import *
 from ..tools.makeMessage import makeMessageTitle
 
 __plugin_name__ = '提问'
@@ -32,7 +32,7 @@ async def private2group(session: CommandSession):
     title = makeMessageTitle(ctx=session.ctx)
     # print(title)
 
-    await bot.send_msg(group_id=big_group, message=title+question)
+    await bot.send_msg(group_id=test_group, message=title+question)
     await session.send('问题已经收到啦，请等待')
 
 
