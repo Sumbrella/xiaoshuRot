@@ -26,8 +26,8 @@ async def _(session: CommandSession):
     arg = session.current_arg_text
     args = arg.split('/')
     try:
-        group_id = args[0]
-        message = args[1]
+        session.state['group_id'] = args[0]
+        session.state['target_message'] = args[1]
     except Exception as e:
         session.state['group_id'] = NOINPUT
         session.state['target_message'] = ""
