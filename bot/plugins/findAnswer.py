@@ -1,6 +1,8 @@
 
 import reuqests
 from nonebot import on_command, commandSession
+from urllib.parse import quote
+import json
 
 
 class Poster:
@@ -36,10 +38,9 @@ class Poster:
         }
 
 
-@on_command("find"， aliases=("查题"))
+@on_command("find",aliases=("查题"))
 async def findAnswer(session: commandSession):
 	args = session.current_args.split()
 	poster = Poster(args)
 	poster.post()
 	await session.send(poster.answer)
-
