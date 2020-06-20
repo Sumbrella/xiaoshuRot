@@ -36,7 +36,7 @@ class Poster:
         }
 
 
-@on_command("find"， aliases=("查题"))
+@on_command("find", aliases=("查题"))
 async def findAnswer(session: commandSession):
 	args = session.current_args.split()
 	poster = Poster(args)
