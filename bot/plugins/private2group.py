@@ -26,9 +26,8 @@ bot = get_bot()
 async def private2group(session: CommandSession):
 
     question = session.get('question', prompt='请发送你的问题~')
-    print(question)
     question = question[0]
-    print(question)
+
     title = makeMessageTitle(ctx=session.ctx)
     # print(title)
 
@@ -39,7 +38,8 @@ async def private2group(session: CommandSession):
 @private2group.args_parser
 async def _(session: CommandSession):
     # 去掉首尾的空白
-    stripped_arg = session.current_arg.split()
+    current_arg = session.current_arg.strip()
+    stripped_arg = current_arg.split()
 
     if session.is_first_run:
         if stripped_arg:
